@@ -72,7 +72,7 @@
 %% Section formatting
 \newenvironment{sections}[1]{
   \sectionlineskip
-  \hrule width \hsize \kern 0.5mm \hrule width \hsize height 0.4pt
+  \hrule width \hsize
   \sectionskip{\bf \Large #1}
   \sectionlineskip
   \begin{list}{}{
