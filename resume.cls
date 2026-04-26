@@ -8,6 +8,7 @@
 \usepackage{array}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ifthen}
+\usepackage{enumitem}
 
 %% Layout
 \pagenumbering{gobble}
@@ -82,4 +83,10 @@
 }{
   \end{list}
   \sectionlineskip
+}
+
+\newenvironment{resumeitemize}{
+  \begin{itemize}[leftmargin=1.2em,itemsep=0em,topsep=0.1em,parsep=0em,partopsep=0em]
+}{
+  \end{itemize}
 }
