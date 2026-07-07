@@ -1,3 +1,12 @@
+# Project specific
+*.aux
+*.synctex.gz
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+
 # General
 .DS_Store
 .AppleDouble
