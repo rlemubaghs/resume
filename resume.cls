@@ -9,6 +9,8 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ifthen}
 \usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{eso-pic}
 
 %% Layout
 \pagenumbering{gobble}
@@ -22,10 +24,35 @@
 \def\sectionlineskip{\medskip}
 \def\nameskip{\smallskip}
 \def\sectionskip{\medskip}
+\newlength{\profilepicturesize}
+\setlength{\profilepicturesize}{2.2cm}
 
 \let \@addressone \relax
 \let \@addresstwo \relax
 \let \@addressthree \relax
+\let \@profilepicture \relax
+
+\def \profilepicture #1{
+  \def \@profilepicture {#1}
+}
+
+\def \printprofilepicture {
+  \@ifundefined{@profilepicture}{}{
+    \AddToShipoutPictureFG*{
+      \AtTextUpperLeft{
+        \put(\LenToUnit{\textwidth-\profilepicturesize},\LenToUnit{-\profilepicturesize}){
+          \makebox[0pt][l]{
+            \begingroup
+              \setlength{\fboxsep}{0pt}
+              \setlength{\fboxrule}{0.8pt}
+              \fbox{\includegraphics[width=\profilepicturesize,height=\profilepicturesize]{\@profilepicture}}
+            \endgroup
+          }
+        }
+      }
+    }
+  }
+}
 
 \def \address #1{
   \@ifundefined{@addresstwo}{
@@ -58,6 +85,7 @@
 \let\ori@document=\document
 \renewcommand{\document}{
   \ori@document
+  \printprofilepicture
   \printname
   \printaddress{\@addressone}
   \@ifundefined{@addressone}{}{
