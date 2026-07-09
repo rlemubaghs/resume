@@ -25,7 +25,9 @@
 \def\nameskip{\smallskip}
 \def\sectionskip{\medskip}
 \newlength{\profilepicturesize}
-\setlength{\profilepicturesize}{2.2cm}
+\newlength{\profilepictureframerule}
+\setlength{\profilepicturesize}{2.75cm}
+\setlength{\profilepictureframerule}{0.8pt}
 
 \let \@addressone \relax
 \let \@addresstwo \relax
@@ -40,11 +42,11 @@
   \@ifundefined{@profilepicture}{}{
     \AddToShipoutPictureFG*{
       \AtTextUpperLeft{
-        \put(\LenToUnit{\textwidth-\profilepicturesize},\LenToUnit{-\profilepicturesize}){
+        \put(\LenToUnit{\textwidth-\profilepicturesize-20\profilepictureframerule},\LenToUnit{-\profilepicturesize}){
           \makebox[0pt][l]{
             \begingroup
               \setlength{\fboxsep}{0pt}
-              \setlength{\fboxrule}{0.8pt}
+              \setlength{\fboxrule}{\profilepictureframerule}
               \fbox{\includegraphics[width=\profilepicturesize,height=\profilepicturesize]{\@profilepicture}}
             \endgroup
           }

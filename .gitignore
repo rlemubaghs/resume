@@ -1,6 +1,7 @@
 # Project specific
 *.aux
 *.synctex.gz
+*.synctex(busy)
 *.log
 *.out
 *.toc
